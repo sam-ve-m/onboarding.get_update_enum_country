@@ -1,0 +1,55 @@
+include:
+- ./func/*
+kind: ArchiveUploadSpec
+name: func-qkA8
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: fn-get-country-2f127316-a504-41d8-844c-5a8b7741f1e2
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: env-get-country
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://func-qkA8
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2022-05-23T12:28:23Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: fn-get-country
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 1
+      MinScale: 1
+      SpecializationTimeout: 120
+      TargetCPUPercent: 80
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: env-get-country
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: main.get_enums
+    packageref:
+      name: fn-get-country-2f127316-a504-41d8-844c-5a8b7741f1e2
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

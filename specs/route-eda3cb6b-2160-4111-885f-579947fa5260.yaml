@@ -1,0 +1,23 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  creationTimestamp: null
+  name: eda3cb6b-2160-4111-885f-579947fa5260
+  namespace: default
+spec:
+  createingress: false
+  functionref:
+    functionweights: null
+    name: fn-get-country
+    type: name
+  host: ""
+  ingressconfig:
+    annotations: null
+    host: '*'
+    path: /enum/country
+    tls: ""
+  method: ""
+  methods:
+  - GET
+  prefix: ""
+  relativeurl: /enum/country
