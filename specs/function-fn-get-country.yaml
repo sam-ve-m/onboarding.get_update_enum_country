@@ -1,14 +1,14 @@
 include:
 - ./func/*
 kind: ArchiveUploadSpec
-name: func-qkA8
+name: func-lmG3
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: fn-get-country-2f127316-a504-41d8-844c-5a8b7741f1e2
+  name: fn-get-country-e6d97509-ae70-424e-b744-0f9295bd3845
   namespace: default
 spec:
   deployment:
@@ -19,10 +19,10 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://func-qkA8
+    url: archive://func-lmG3
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2022-05-23T12:28:23Z"
+  lastUpdateTimestamp: "2022-05-26T15:57:58Z"
 
 ---
 apiVersion: fission.io/v1
@@ -49,7 +49,7 @@ spec:
   package:
     functionName: main.get_enums
     packageref:
-      name: fn-get-country-2f127316-a504-41d8-844c-5a8b7741f1e2
+      name: fn-get-country-e6d97509-ae70-424e-b744-0f9295bd3845
       namespace: default
   requestsPerPod: 1
   resources: {}

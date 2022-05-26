@@ -4,4 +4,4 @@
 apiVersion: fission.io/v1
 kind: DeploymentConfig
 name: onboarding-get-update-enum-country
-uid: 2744ea9c-6c20-44e8-a256-6ff79fe81789
+uid: 31430183-7b6b-4ea7-8406-97daaa4995a1
