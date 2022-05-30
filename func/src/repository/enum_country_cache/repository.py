@@ -9,7 +9,7 @@ from src.core.interfaces.repository.enum_country_cache.interface import (
 
 
 class EnumCountryCacheRepository(IEnumCountryCacheRepository):
-    enum_key = "jormungandr: EnumCountry"
+    enum_key = "jormungandr:EnumCountry"
 
     @classmethod
     def save_enum_country(cls, enum_country: list, time: int = 3600) -> bool:
