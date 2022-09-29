@@ -51,5 +51,5 @@ spec:
     packageref:
       name: fn-get-country-e6d97509-ae70-424e-b744-0f9295bd3845
       namespace: default
-  requestsPerPod: 1
+  requestsPerPod: 10000
   resources: {}
