@@ -1,0 +1,55 @@
+include:
+- ./func/*
+kind: ArchiveUploadSpec
+name: func-lmG3
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: fn-get-country-e6d97509-ae70-424e-b744-0f9295bd3845
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: env-get-country
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://func-lmG3
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2022-05-26T15:57:58Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: fn-get-country
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 3
+      MinScale: 1
+      SpecializationTimeout: 120
+      TargetCPUPercent: 80
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: env-get-country
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: main.get_enums
+    packageref:
+      name: fn-get-country-e6d97509-ae70-424e-b744-0f9295bd3845
+      namespace: default
+  requestsPerPod: 10000
+  resources: {}
